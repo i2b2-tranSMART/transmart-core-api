@@ -1,37 +1,38 @@
 package org.transmartproject.core.dataquery.highdim
 
-public enum GenomeBuildNumber {
+import groovy.transform.CompileStatic
 
-    GRCh36('GRCH36'),
-    GRCh37('GRCH37'),
-    GRCh38('GRCH38'),
+@CompileStatic
+enum GenomeBuildNumber {
 
-    UNKNOWN('UNKNOWN')
+	GRCh36('GRCH36'),
+	GRCh37('GRCH37'),
+	GRCh38('GRCH38'),
 
-    static gBuildNumberMap = [ "HG18"  :"GRCH36",
-                               "HG19"  :"GRCH37",
-                               "HG38"  :"GRCH38"
-                             ]
-    /**
-     * The value of this object for storage purposes.
-     */
-    final String id  
+	UNKNOWN('UNKNOWN')
 
-    protected GenomeBuildNumber(id) {
-        this.id = id
-    }
+	private static final Map<String, String> gBuildNumberMap =
+			[HG18: 'GRCH36', HG19: 'GRCH37', HG38: 'GRCH38'].asImmutable() as Map
 
-    static GenomeBuildNumber forId(String id) {
-        String ucid = id ? id.toUpperCase() : id
-        ucid = gBuildNumberMap[ucid] ?: ucid
-        values().find { it.id == ucid } ?: UNKNOWN
-    }
+	/**
+	 * The value of this object for storage purposes.
+	 */
+	final String id
 
+	private GenomeBuildNumber(id) {
+		this.id = id
+	}
+
+	static GenomeBuildNumber forId(String id) {
+		String ucid = id ? id.toUpperCase() : id
+		ucid = gBuildNumberMap[ucid] ?: ucid
+		values().find { GenomeBuildNumber it -> it.id == ucid } ?: UNKNOWN
+	}
 }
 
 /*
- * assert  GenomeBuildNumber.forId("hg18") == GenomeBuildNumber.GRCh36
- * assert  GenomeBuildNumber.forId("hg38") == GenomeBuildNumber.GRCh38
- * assert  GenomeBuildNumber.forId("hg40") == GenomeBuildNumber.UNKNOWN
+ * assert  GenomeBuildNumber.forId('hg18') == GenomeBuildNumber.GRCh36
+ * assert  GenomeBuildNumber.forId('hg38') == GenomeBuildNumber.GRCh38
+ * assert  GenomeBuildNumber.forId('hg40') == GenomeBuildNumber.UNKNOWN
  */
 

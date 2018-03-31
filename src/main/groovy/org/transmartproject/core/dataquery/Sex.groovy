@@ -1,18 +1,21 @@
 package org.transmartproject.core.dataquery
 
-public enum Sex {
+import groovy.transform.CompileStatic
 
-    MALE,
-    FEMALE,
-    UNKOWN
+@CompileStatic
+enum Sex {
 
-    String toString() {
-        this.name().toLowerCase(Locale.ENGLISH)
-    }
+	MALE,
+	FEMALE,
+	UNKOWN
 
-    static Sex fromString(String name) {
-        Sex.values().find {
-            it.toString() == name?.toLowerCase(Locale.ENGLISH)
-        } ?: UNKOWN
-    }
+	String toString() {
+		name().toLowerCase Locale.ENGLISH
+	}
+
+	static Sex fromString(String name) {
+		values().find {
+			it.toString() == name?.toLowerCase(Locale.ENGLISH)
+		} ?: UNKOWN
+	}
 }

@@ -1,27 +1,32 @@
 package org.transmartproject.core.dataquery.highdim.vcf
 
+import groovy.transform.CompileStatic
+
+@CompileStatic
 enum GenomicVariantType {
-    SNP, INS, DEL, DIV
-    
-    /**
-     * Returns the Genomic Variant Type for a given reference and alternative
-     *
-     */
-    static GenomicVariantType getGenomicVariantType(String ref, String alt) {
-        def refCleaned = (ref ?: '').replaceAll(/[^ACGT]/, '')
-        def altCleaned = (alt ?: '').replaceAll(/[^ACGT]/, '')
+	SNP,
+	INS,
+	DEL,
+	DIV
 
-        if (refCleaned.length() == 1 && altCleaned.length() == 1)
-            return SNP
+	/**
+	 * The Genomic Variant Type for a given reference and alternative.
+	 */
+	static GenomicVariantType getGenomicVariantType(String ref, String alt) {
+		String refCleaned = (ref ?: '').replaceAll(/[^ACGT]/, '')
+		String altCleaned = (alt ?: '').replaceAll(/[^ACGT]/, '')
 
-        if (altCleaned.length() > refCleaned.length()
-                && altCleaned.contains(refCleaned))
-            return INS
-
-        if (altCleaned.length() < refCleaned.length()
-                && refCleaned.contains(altCleaned))
-            return DEL
-
-        DIV
-    }
+		if (refCleaned.length() == 1 && altCleaned.length() == 1) {
+			SNP
+		}
+		else if (altCleaned.length() > refCleaned.length() && altCleaned.contains(refCleaned)) {
+			INS
+		}
+		else if (altCleaned.length() < refCleaned.length() && refCleaned.contains(altCleaned)) {
+			DEL
+		}
+		else {
+			DIV
+		}
+	}
 }

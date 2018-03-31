@@ -5,18 +5,18 @@ package org.transmartproject.core.dataquery.highdim.tworegion
  */
 interface Event {
 
-    /**
-     * deletion, inversion, duplication,... Type from <a href="http://cgatools.sourceforge.net/docs/1.8.0/cgatools-command-line-reference.html#junctions2events">CGA</a>
-     */
-    String getCgaType()
+	/**
+	 * deletion, inversion, duplication,... Type from <a href="http://cgatools.sourceforge.net/docs/1.8.0/cgatools-command-line-reference.html#junctions2events">CGA</a>
+	 */
+	String getCgaType()
 
-    /**
-     * inter/intra chromosomal inversion/translocation: <a href="http://sourceforge.net/p/soapfuse/wiki/classification-of-fusions.for.SOAPfuse/">SOAP</a>
-     */
-    String getSoapClass()
+	/**
+	 * inter/intra chromosomal inversion/translocation: <a href="http://sourceforge.net/p/soapfuse/wiki/classification-of-fusions.for.SOAPfuse/">SOAP</a>
+	 */
+	String getSoapClass()
 
-    /**
-     * Set of genes affected by this event
-     */
-    Set<EventGene> getEventGenes()
+	/**
+	 * Set of genes affected by this event
+	 */
+	Set<EventGene> getEventGenes()
 }

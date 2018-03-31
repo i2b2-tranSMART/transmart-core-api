@@ -6,14 +6,13 @@ package org.transmartproject.core.ontology
  */
 interface OntologyTermTag {
 
-    /**
-     * @return Tag label name. It should be unique per ontology term.
-     */
-    String getName()
+	/**
+	 * @return Tag label name. It should be unique per ontology term.
+	 */
+	String getName()
 
-    /**
-     * @return Free text value.
-     */
-    String getDescription()
-
+	/**
+	 * @return Free text value.
+	 */
+	String getDescription()
 }

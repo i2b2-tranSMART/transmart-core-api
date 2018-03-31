@@ -17,30 +17,29 @@ package org.transmartproject.core.users
  * this resource.
  *
  */
-public interface Permission {
+interface Permission {
 
-    /**
-     * The name of the permission. Typically, client code is not interested in
-     * the permissions themselves, but instead on the set of operations that
-     * a user can perform.
-     *
-     * Therefore, this type will be more useful for introspection or for
-     * assigning permissions to users, which is still not supported by this API.
-     *
-     * @return the name of this permission
-     */
-    String getName()
+	/**
+	 * The name of the permission. Typically, client code is not interested in
+	 * the permissions themselves, but instead on the set of operations that
+	 * a user can perform.
+	 *
+	 * Therefore, this type will be more useful for introspection or for
+	 * assigning permissions to users, which is still not supported by this API.
+	 *
+	 * @return the name of this permission
+	 */
+	String getName()
 
-    /**
-     * Returns true iif this permission cover the operation described by the
-     * argument.
-     *
-     * This overrides the Groovy <code>in</code> operator
-     *
-     * @param operation the operation one wants to test for inclusion in this
-     * permission
-     * @return true iif this permission includes the passed operation
-     */
-    boolean isCase(ProtectedOperation operation)
-
+	/**
+	 * Returns true iif this permission cover the operation described by the
+	 * argument.
+	 *
+	 * This overrides the Groovy <code>in</code> operator
+	 *
+	 * @param operation the operation one wants to test for inclusion in this
+	 * permission
+	 * @return true iif this permission includes the passed operation
+	 */
+	boolean isCase(ProtectedOperation operation)
 }

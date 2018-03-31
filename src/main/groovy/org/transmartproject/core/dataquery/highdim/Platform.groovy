@@ -9,62 +9,61 @@ import org.transmartproject.core.dataquery.highdim.chromoregion.Region
  * Array based platforms will have an associated array template (data about
  * its probes); region platforms will have an associated set of regions.
  */
-public interface Platform {
+interface Platform {
 
-    /**
-     * A string that uniquely identifies the platform.
-     *
-     * @return the platform id
-     */
-    String getId()
+	/**
+	 * A string that uniquely identifies the platform.
+	 *
+	 * @return the platform id
+	 */
+	String getId()
 
-    /**
-     * A human-readable name for the platform.
-     *
-     * @return human-readable platform name.
-     */
-    String getTitle()
+	/**
+	 * A human-readable name for the platform.
+	 *
+	 * @return human-readable platform name.
+	 */
+	String getTitle()
 
-    /**
-     * The scientific name for the organism, like 'Homo Sapiens'.
-     *
-     * @return the organism associated with this platform
-     */
-    String getOrganism()
+	/**
+	 * The scientific name for the organism, like 'Homo Sapiens'.
+	 *
+	 * @return the organism associated with this platform
+	 */
+	String getOrganism()
 
-    /**
-     * A genome build release identifier.
-     *
-     * @return the genome build release identifier
-     */
-    String getGenomeReleaseId()
+	/**
+	 * A genome build release identifier.
+	 *
+	 * @return the genome build release identifier
+	 */
+	String getGenomeReleaseId()
 
-    /**
-     * The time when this platform was imported to the database. Maybe.
-     *
-     * @return the platform annotation date
-     */
-    Date getAnnotationDate()
+	/**
+	 * The time when this platform was imported to the database. Maybe.
+	 *
+	 * @return the platform annotation date
+	 */
+	Date getAnnotationDate()
 
-    /**
-     * Indicates the type of platform or pseudo-platform,
-     * like 'Chromosomal Region' or 'Gene Expression'. Each platform
-     * is associated with a specific type of high dimensional data.
-     *
-     * @return the platform marker type
-     */
-    String getMarkerType()
+	/**
+	 * Indicates the type of platform or pseudo-platform,
+	 * like 'Chromosomal Region' or 'Gene Expression'. Each platform
+	 * is associated with a specific type of high dimensional data.
+	 *
+	 * @return the platform marker type
+	 */
+	String getMarkerType()
 
-    /**
-     * Returns an iterable with the platform template entries. The type of
-     * this entries depends on the marker type and is not constrained by this
-     * API.
-     *
-     * If the marker type does not have an associated template or it's of
-     * unknown type, then null is returned.
-     *
-     * @return the template entries for this platform or null
-     */
-    Iterable<?> getTemplate()
-
+	/**
+	 * Returns an iterable with the platform template entries. The type of
+	 * this entries depends on the marker type and is not constrained by this
+	 * API.
+	 *
+	 * If the marker type does not have an associated template or it's of
+	 * unknown type, then null is returned.
+	 *
+	 * @return the template entries for this platform or null
+	 */
+	Iterable<?> getTemplate()
 }

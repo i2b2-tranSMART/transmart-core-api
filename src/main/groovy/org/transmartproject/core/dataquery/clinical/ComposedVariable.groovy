@@ -5,10 +5,9 @@ package org.transmartproject.core.dataquery.clinical
  */
 interface ComposedVariable extends ClinicalVariable {
 
-    /**
-     * The {@link ClinicalVariable}s that compose this object.
-     * @return the list of inner clinical variables
-     */
-    List<ClinicalVariable> getInnerClinicalVariables()
-
+	/**
+	 * The {@link ClinicalVariable}s that compose this object.
+	 * @return the list of inner clinical variables
+	 */
+	List<ClinicalVariable> getInnerClinicalVariables()
 }

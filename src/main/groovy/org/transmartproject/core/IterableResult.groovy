@@ -5,6 +5,6 @@ package org.transmartproject.core
  *
  * In general, the iterator can be fetched only once.
  *
- * @param < I > The type of the results themselves
+ * @param < I >  The type of the results themselves
  */
 interface IterableResult<I> extends Closeable, Iterable<I> {}
